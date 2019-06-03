@@ -27,13 +27,14 @@ unless ($options->{F} && -e $options->{F}) {
 my ($z, $Z, $zoom, $x, $X, $y, $Y, $n, $cmd);
 my $bulkSize=8;
 # Open the config
-my $yaml = YAML::Tiny->read($options->{F});
+my $yaml = YAML::Tiny->read($options->{F})->[0];
 
 print "\nRendering started at: ";
 system("date");
 print("\n");
 
-while (my ($k, $v) = each ($yaml->[0])) {
+foreach my $k (keys %{$yaml}) {
+    my $v = $yaml->{$k};
     if (($v->{x} || int($v->{x})==0) &&
         ($v->{X} || int($v->{X})==0) &&
         ($v->{y} || int($v->{y})==0) && 
