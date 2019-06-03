@@ -6,7 +6,7 @@ use Math::Trig;
 use YAML::Tiny;
 
 my $options = {};
-getopts("n:l:m:f:F:h", $options);
+getopts("n:l:m:fF:h", $options);
 
 if ($options->{h}) {
     print "options: (x,X,y,Y,z,Z - required, no checks, small letters should be less)\n";
