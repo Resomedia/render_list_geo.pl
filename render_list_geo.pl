@@ -33,8 +33,7 @@ print "\nRendering started at: ";
 system("date");
 print("\n");
 
-foreach my $k (keys $yaml->[0]) {
-    my $v = $yaml->[0]->{$k};
+while (my ($k, $v) = each ($yaml->[0])) {
     if (($v->{x} || int($v->{x})==0) &&
         ($v->{X} || int($v->{X})==0) &&
         ($v->{y} || int($v->{y})==0) && 
